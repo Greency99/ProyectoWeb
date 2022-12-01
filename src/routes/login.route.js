@@ -6,14 +6,10 @@ const bcrypt = require("bcryptjs");
 router.post("/", async (req, res) => {
     let { email, password } = req.body;
     let doc = await User.findOne({ email });
-    //console.log(doc)
 
     if (doc) {
-        //console.log(doc.password);
         let result = bcrypt.compareSync(password, doc.password);
-        //console.log(result);
         if (result) {
-            //console.log("Segundo if")
             //Todo: generar token
             let token = jwt.sign(
                 { id: doc.id, email, _id: doc._id },
