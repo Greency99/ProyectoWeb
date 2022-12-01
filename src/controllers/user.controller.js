@@ -7,7 +7,6 @@ class UserController {
   }
   static async insertOne(req, res) {
     let result = await User.saveUser(req.body);
-    //     console.log("body", req.body);
     res.status(200).send("ok");
     return;
   }

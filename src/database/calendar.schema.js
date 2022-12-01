@@ -2,9 +2,9 @@ const { mongoose } = require("./connection");
 
 let calendarSchema = mongoose.Schema({
     title: String,
-    day: Int8Array,
-    month: Int8Array,
-    year: Int8Array,
+    day: String,
+    month: String,
+    year: String,
 });
 
 calendarSchema.statics.getEvents = async () => {
